@@ -1,0 +1,400 @@
+"DetailScreen1 As screen.'phoneDetailViewLayout_ver3.0'":
+    Fill: =RGBA(29, 29, 29, 1)
+    LoadingSpinnerColor: =RGBA(12, 126, 44, 1)
+
+    RectQuickActionBar2 As rectangle:
+        BorderColor: =RGBA(135, 190, 82, 1)
+        Fill: =RGBA(12, 126, 44, 1)
+        Height: =88
+        Width: =Parent.Width
+        ZIndex: =1
+
+    IconBackarrow1 As icon.ChevronLeft:
+        AccessibleLabel: =Self.Tooltip
+        BorderColor: =RGBA(135, 190, 82, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =88
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate(BrowseScreen1, ScreenTransition.None)
+        PaddingBottom: =24
+        PaddingLeft: =24
+        PaddingRight: =24
+        PaddingTop: =24
+        PressedFill: =RGBA(255, 255, 255, 0.3)
+        TabIndex: =0
+        Tooltip: ="Back to list"
+        Width: =88
+        ZIndex: =2
+
+    IconEdit1 As icon.Edit:
+        AccessibleLabel: =Self.Tooltip
+        BorderColor: =RGBA(135, 190, 82, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        DisplayMode: =If(DataSourceInfo([@Contacts], DataSourceInfo.EditPermission), DisplayMode.Edit, DisplayMode.Disabled)
+        Height: =88
+        Icon: =Icon.Edit
+        OnSelect: =EditForm(EditForm1);Navigate(EditScreen1, ScreenTransition.None)
+        PaddingBottom: =24
+        PaddingLeft: =24
+        PaddingRight: =24
+        PaddingTop: =24
+        PressedFill: =RGBA(255, 255, 255, 0.3)
+        TabIndex: =0
+        Tooltip: ="Edit this item"
+        Width: =88
+        X: =Parent.Width - Self.Width
+        ZIndex: =3
+
+    IconDelete1 As icon.Trash:
+        AccessibleLabel: =Self.Tooltip
+        BorderColor: =RGBA(135, 190, 82, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        DisplayMode: =If(!IsBlank(BrowseGallery1.Selected) && DataSourceInfo([@Contacts], DataSourceInfo.DeletePermission), DisplayMode.Edit, DisplayMode.Disabled)
+        Height: =88
+        Icon: =Icon.Trash
+        OnSelect: =Remove([@Contacts], BrowseGallery1.Selected); If (IsEmpty(Errors([@Contacts], BrowseGallery1.Selected)), Back())
+        PaddingBottom: =24
+        PaddingLeft: =24
+        PaddingRight: =24
+        PaddingTop: =24
+        PressedFill: =RGBA(255, 255, 255, 0.3)
+        TabIndex: =0
+        Tooltip: ="Delete this item"
+        Width: =88
+        X: =Parent.Width - IconEdit1.Width - Self.Width
+        ZIndex: =4
+
+    LblAppName2 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Height: =88
+        Size: =27
+        Text: ="Contacts"
+        Width: =Parent.Width - Self.X - IconDelete1.Width - IconEdit1.Width
+        Wrap: =false
+        X: =80
+        ZIndex: =5
+
+    DetailForm1 As formViewer:
+        BorderColor: =RGBA(135, 190, 82, 1)
+        DataSource: =[@Contacts]
+        Height: =Parent.Height - DetailForm1.Y
+        Item: =BrowseGallery1.Selected
+        Width: =Parent.Width
+        Y: =RectQuickActionBar2.Y + RectQuickActionBar2.Height
+        ZIndex: =6
+
+        ID_DataCard1 As typedDataCard.textualViewCard:
+            BorderColor: =RGBA(135, 190, 82, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="ID"
+            Default: =ThisItem.ID
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@Contacts],DataSourceInfo.DisplayName,"ID")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey4 As label:
+                AutoHeight: =true
+                Color: =RGBA(135, 190, 82, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue4 As label:
+                AutoHeight: =true
+                BorderColor: =RGBA(135, 190, 82, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey4.Y + DataCardKey4.Height + 5
+                ZIndex: =2
+
+        FirstName_DataCard1 As typedDataCard.textualViewCard:
+            BorderColor: =RGBA(135, 190, 82, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="FirstName"
+            Default: =ThisItem.FirstName
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@Contacts],DataSourceInfo.DisplayName,"FirstName")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey2 As label:
+                AutoHeight: =true
+                Color: =RGBA(135, 190, 82, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue2 As label:
+                AutoHeight: =true
+                BorderColor: =RGBA(135, 190, 82, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey2.Y + DataCardKey2.Height + 5
+                ZIndex: =2
+
+        LastName_DataCard1 As typedDataCard.textualViewCard:
+            BorderColor: =RGBA(135, 190, 82, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="LastName"
+            Default: =ThisItem.LastName
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@Contacts],DataSourceInfo.DisplayName,"LastName")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =2
+            ZIndex: =1
+
+            DataCardKey5 As label:
+                AutoHeight: =true
+                Color: =RGBA(135, 190, 82, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue5 As label:
+                AutoHeight: =true
+                BorderColor: =RGBA(135, 190, 82, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey5.Y + DataCardKey5.Height + 5
+                ZIndex: =2
+
+        "'Footy Team_DataCard1' As typedDataCard.textualViewCard":
+            BorderColor: =RGBA(135, 190, 82, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Footy_x0020_Team"
+            Default: =ThisItem.'Footy Team'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@Contacts],DataSourceInfo.DisplayName,"Footy_x0020_Team")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey3 As label:
+                AutoHeight: =true
+                Color: =RGBA(135, 190, 82, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue3 As label:
+                AutoHeight: =true
+                BorderColor: =RGBA(135, 190, 82, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey3.Y + DataCardKey3.Height + 5
+                ZIndex: =2
+
+        Phone_DataCard1 As typedDataCard.textualViewCard:
+            BorderColor: =RGBA(135, 190, 82, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Phone"
+            Default: =ThisItem.Phone
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@Contacts],DataSourceInfo.DisplayName,"Phone")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey6 As label:
+                AutoHeight: =true
+                Color: =RGBA(135, 190, 82, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue6 As label:
+                AutoHeight: =true
+                BorderColor: =RGBA(135, 190, 82, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey6.Y + DataCardKey6.Height + 5
+                ZIndex: =2
+
+        email_DataCard1 As typedDataCard.textualViewCard:
+            BorderColor: =RGBA(135, 190, 82, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="email"
+            Default: =ThisItem.email
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@Contacts],DataSourceInfo.DisplayName,"email")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =5
+            ZIndex: =1
+
+            DataCardKey1 As label:
+                AutoHeight: =true
+                Color: =RGBA(135, 190, 82, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue1 As label:
+                AutoHeight: =true
+                BorderColor: =RGBA(135, 190, 82, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey1.Y + DataCardKey1.Height + 5
+                ZIndex: =2
+
+        "'Car Type_DataCard1' As typedDataCard.textualViewCard":
+            BorderColor: =RGBA(135, 190, 82, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Car_x0020_Type"
+            Default: =ThisItem.'Car Type'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@Contacts],DataSourceInfo.DisplayName,"Car_x0020_Type")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =6
+            ZIndex: =1
+
+            DataCardKey13 As label:
+                AutoHeight: =true
+                Color: =RGBA(135, 190, 82, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue13 As label:
+                AutoHeight: =true
+                BorderColor: =RGBA(135, 190, 82, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey13.Y + DataCardKey13.Height + 5
+                ZIndex: =2
+

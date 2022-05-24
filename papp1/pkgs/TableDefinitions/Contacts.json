@@ -1,0 +1,7 @@
+{
+  "DataEntityMetadataJson": {
+    "Contacts": "{\"name\":\"Contacts\",\"title\":\"Contacts\",\"x-ms-permission\":\"read-write\",\"schema\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"ID\":{\"type\":\"string\",\"x-ms-keyOrder\":0,\"x-ms-keyType\":\"none\",\"x-ms-sort\":\"none\",\"title\":\"ID\"},\"FirstName\":{\"type\":\"string\",\"x-ms-keyOrder\":0,\"x-ms-keyType\":\"none\",\"x-ms-sort\":\"none\",\"title\":\"FirstName\"},\"LastName\":{\"type\":\"string\",\"x-ms-keyOrder\":0,\"x-ms-keyType\":\"none\",\"x-ms-sort\":\"none\",\"title\":\"LastName\"},\"email\":{\"type\":\"string\",\"x-ms-keyOrder\":0,\"x-ms-keyType\":\"none\",\"x-ms-sort\":\"none\",\"title\":\"email\"},\"Footy_x0020_Team\":{\"type\":\"string\",\"x-ms-keyOrder\":0,\"x-ms-keyType\":\"none\",\"x-ms-sort\":\"none\",\"title\":\"Footy Team\"},\"Phone\":{\"type\":\"string\",\"x-ms-keyOrder\":0,\"x-ms-keyType\":\"none\",\"x-ms-sort\":\"none\",\"title\":\"Phone\"},\"__PowerAppsId__\":{\"type\":\"string\",\"x-ms-keyOrder\":1,\"x-ms-keyType\":\"primary\",\"x-ms-sort\":\"none\",\"x-ms-permission\":\"read-only\",\"title\":\"Row id\"},\"Car_x0020_Type\":{\"type\":\"string\",\"x-ms-keyOrder\":0,\"x-ms-keyType\":\"none\",\"x-ms-sort\":\"none\",\"title\":\"Car Type\"}}}}}"
+  },
+  "EntityName": "Contacts",
+  "TableName": "Contacts"
+}

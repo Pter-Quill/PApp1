@@ -1,0 +1,26 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_excel",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2022-04-18T17:05:07.0290000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "__PowerAppsId__": "Row id",
+      "Car_x0020_Type": "Car Type",
+      "email": "email",
+      "FirstName": "FirstName",
+      "Footy_x0020_Team": "Footy Team",
+      "ID": "ID",
+      "LastName": "LastName",
+      "Phone": "Phone"
+    },
+    "DatasetName": "b!xvYS4Bodfk-VkiChy8qKuO6RAUfOMMZKqsA0W7pvRcnhOJfZOcy9RKfRYEJEtujO.015ZC36YJULVGSZMBN2FFLSHOAXRJ3JBWG",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "Contacts",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]
